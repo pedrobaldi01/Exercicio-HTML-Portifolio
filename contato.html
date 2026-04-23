@@ -15,23 +15,25 @@
             <a href="sobre.html">Sobre</a>
             <a href="contato.html" class="ativo" aria-current="page">Contato</a>
             <a href="links.html">Links</a>
+            <a href="cadastro.html">Cadastro</a>  
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>Formulário</h2>
+            <h2>Contato</h2>
             <form action="#" method="post" class="formulario-contato">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-
+                <input type="text" id="nome" name="Nome e Sobrenome" placeholder="Digite seu nome" required>
+                <label for="telefone">Telefone</label>
+                <input type="text" id="telefone" name="Telefone" placeholder="(00) 00000-0000" required>
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-
+                <input type="email" id="email" name="Email" placeholder="Digite seu email" required>
                 <label for="mensagem">Mensagem</label>
-                <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva sua mensagem" required></textarea>
+                <textarea id="mensagem" name="Mensagem" rows="6" placeholder="Escreva sua mensagem" required></textarea>
 
                 <button type="submit">Enviar</button>
+
             </form>
         </section>
 
@@ -48,5 +50,6 @@
     <footer>
         <p>© 2026 - Pedro Baldi - Ciência da Computação - Turma 2024/T1</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

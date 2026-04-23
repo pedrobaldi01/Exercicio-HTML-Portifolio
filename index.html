@@ -10,12 +10,14 @@
 <body class="pagina-home">
     <header>
         <h1>Bem-vindo ao meu site</h1>
+        <script> window.alert('Hello World!');</script>
         <p>Espaço criado para praticar HTML e programação WEB.</p>
         <nav>
             <a href="index.html" class="ativo" aria-current="page">Início</a>
             <a href="sobre.html">Sobre</a>
             <a href="contato.html">Contato</a>
             <a href="links.html">Links</a>
+            <a href="cadastro.html">Cadastro</a>
         </nav>
     </header>
 
@@ -45,8 +47,19 @@
         </section>
     </main>
 
+<p id="demo"></p>
+<script>
+    let x = 5;
+    let y = 2;
+    let z = x * y;
+    document.getElementById("demo").innerHTML = z;
+</script>
+
+<button onclick="document.getElementById('demo').innerHTML = Date()">Que horas são?</button>
+
     <footer>
         <p>© 2026 - Pedro Baldi - Ciência da Computação - Turma 2024/T1</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
