@@ -2,6 +2,24 @@
     box-sizing: border-box;
 }
 
+/* Correção da galeria da Aula 2 */
+.pagina-aula2 .galeria-aula2 {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pagina-aula2 .galeria-aula2 img {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 :root {
     --bg-page: #f4f7f4;
     --bg-panel: #ffffff;
@@ -94,9 +112,14 @@ section {
     box-shadow: var(--shadow);
 }
 
-main > section h2 {
+main > section:not(:last-of-type) {
+    grid-column: span 12;
+}
+
+main > section h2:last-of-type {
     margin-top: 0;
     line-height: 1.2;
+    grid-column: span 12;
 }
 
 section p:last-child,
@@ -189,11 +212,19 @@ button:focus-visible {
     filter: brightness(0.95);
 }
 
+.container {
+    width: 90%;
+    height: 700px;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
 iframe {
     width: 100%;
-    min-height: 280px;
+    height: 100%;
     border: none;
-    border-radius: 10px;
 }
 
 footer {
@@ -264,6 +295,7 @@ footer {
     color: #d00000;
 }
 
+
 /* Celular */
 @media screen and (max-width: 767px) {
     nav a {
@@ -314,6 +346,58 @@ footer {
     }
 }
 
+/* Aula 2 - Exercício 1 */
+.pagina-aula2 .aviso-har h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.pagina-aula2 .galeria-aula2 {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pagina-aula2 .galeria-aula2 img {
+    width: 300px;
+    height: auto;
+    max-width: none;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+/* Aula 4 - Exercício 2 */
+.pagina-aula4 main.layout-aula {
+    grid-template-columns: 4fr 1fr;
+}
+
+.pagina-aula4 .conteudo-aula {
+    grid-column: auto;
+}
+
+.pagina-aula4 .link-aula {
+    grid-column: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pagina-aula4 .analise-aula {
+    grid-column: 1 / -1;
+}
+
+@media screen and (max-width: 767px) {
+    .pagina-aula4 main.layout-aula {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Desktop */
 @media screen and (min-width: 1024px) {
     header {
@@ -334,6 +418,11 @@ footer {
     main {
         grid-template-columns: repeat(12, minmax(0, 1fr));
         gap: 24px;
+    }
+
+    section {
+        width: 100%;
+        padding: 24px;
     }
 
     .pagina-home main > section:first-of-type {
@@ -371,7 +460,20 @@ footer {
         grid-column: 3 / 11;
     }
 
-    iframe {
-        min-height: 360px;
+    .pagina-hands-on main > section:first-of-type {
+        grid-column: span 8;
     }
+
+    .pagina-hands-on main > section:last-of-type {
+        grid-column: span 3;
+    }
+
+    .pagina-hands-on main > section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
 }
