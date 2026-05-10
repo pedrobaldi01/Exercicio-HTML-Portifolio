@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 6 - Exercícios CSS</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="pagina-aula6">
+    <header>
+        <h1>Aula 6 - Exercícios CSS</h1>
+        <p>Produto, galeria, tabela e efeitos visuais com CSS.</p>
+        <nav>
+        <a href="../index.html">Início</a>
+        <a href="../sobre.html">Sobre</a>
+        <a href="../contato.html">Contato</a>
+        <a href="../links.html">Links</a>
+        <a href="../cadastro.html">Cadastro</a>
+        <a href="../handson.html" class="ativo" aria-current="page">Hands-on</a>
+        </nav>
+    </header>
+    <main class="loja-produto">
+        <section class="produto-principal" id="produto">
+            <div>
+                <h2>Mochila Universitária</h2>
+                <p class="preco">R$ 149,90</p>
+                <p>
+                    Mochila simples para faculdade, com espaço para notebook, cadernos,
+                    garrafa e pequenos acessórios do dia a dia.
+                </p>
+                <button type="button">Comprar</button>
+            </div>
+
+            <img src="https://placehold.co/600x400/e8f0ea/24513a?text=Mochila+Universitaria" alt="Imagem da mochila universitária">
+        </section>
+
+        <section class="descricao-produto">
+            <h2>Descrição do produto</h2>
+            <p>
+                Produto indicado para estudantes que precisam organizar materiais de estudo.
+                Possui bolsos internos, alças ajustáveis e tecido resistente para uso diário.
+                Esta área tem limite de altura e usa overflow para demonstrar o conteúdo rolável
+                quando o texto fica maior que o espaço disponível na página.
+            </p>
+        </section>
+
+        <section class="galeria-produto">
+            <h2>Galeria</h2>
+            <div class="galeria-grid">
+                <img src="https://placehold.co/400x300/e8f0ea/24513a?text=Frente" alt="Mochila vista de frente">
+                <img src="https://placehold.co/400x300/e8f0ea/24513a?text=Costas" alt="Mochila vista de costas">
+                <img src="https://placehold.co/400x300/e8f0ea/24513a?text=Bolsos" alt="Bolsos da mochila">
+                <img src="https://placehold.co/400x300/e8f0ea/24513a?text=Detalhe" alt="Detalhe da mochila">
+            </div>
+        </section>
+
+        <section class="caracteristicas">
+            <h2>Características</h2>
+            <ul>
+                <li>✓ Compartimento para notebook.</li>
+                <li>✓ Bolso lateral para garrafa.</li>
+                <li>✓ Alças ajustáveis.</li>
+                <li>✓ Tecido resistente.</li>
+                <li>✓ Grande espaço interno</li>
+            </ul>
+        </section>
+
+        <section class="especificacoes">
+            <h2>Especificações técnicas</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Capacidade</th>
+                        <td>24 litros</td>
+                    </tr>
+                    <tr>
+                        <th>Material</th>
+                        <td>Poliéster</td>
+                    </tr>
+                    <tr>
+                        <th>Dimensões</th>
+                        <td>42 cm x 30 cm x 14 cm</td>
+                    </tr>
+                    <tr>
+                        <th>Peso</th>
+                        <td>600 g</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

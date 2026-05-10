@@ -39,7 +39,7 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-page);
@@ -223,7 +223,6 @@ button:focus-visible {
 
 iframe {
     width: 100%;
-    height: 100%;
     border: none;
 }
 
@@ -398,6 +397,88 @@ footer {
     }
 }
 
+/* Aula 6 - Exercícios CSS */
+.pagina-aula6 .produto-principal,
+.pagina-aula6 .descricao-produto,
+.pagina-aula6 .galeria-produto,
+.pagina-aula6 .caracteristicas,
+.pagina-aula6 .especificacoes{
+    grid-column: 1 / -1;
+}
+
+.pagina-aula6 .produto-principal {
+    display: grid;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.pagina-aula6 p {
+    font-size: 1rem;
+}
+
+.pagina-aula6 .produto-principal img,
+.pagina-aula6 .galeria-grid img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.pagina-aula6 .preco {
+    color: var(--accent);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.pagina-aula6 .descricao-produto {
+    overflow: visible;
+}
+
+.pagina-aula6 .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.pagina-aula6 .galeria-grid img {
+    transition: transform 0.2s ease;
+}
+
+.pagina-aula6 .galeria-grid img:hover {
+    transform: scale(1.03);
+}
+
+.pagina-aula6 .caracteristicas ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.pagina-aula6 .caracteristicas li:nth-child(odd) {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.pagina-aula6 table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pagina-aula6 th,
+.pagina-aula6 td {
+    padding: 10px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+.pagina-aula6 th {
+    width: calc(100% / 3);
+    background-color: #eef6f0;
+}
+
+.pagina-aula6 .icones-sociais a:hover {
+    background-color: var(--bg-header);
+}
+
 /* Desktop */
 @media screen and (min-width: 1024px) {
     header {
@@ -474,6 +555,19 @@ footer {
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
+
+    .pagina-aula6 .produto-principal {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pagina-aula6 .galeria-produto,
+    .pagina-aula6 .caracteristicas {
+        grid-column: span 6;
+    }
+
+    .pagina-aula6 .redes-produto {
+        grid-column: span 4;
     }
 
 }
