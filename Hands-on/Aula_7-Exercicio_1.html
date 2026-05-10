@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hands-on</title>
+    <title>Aula 7 - Exercícios JavaScript</title>
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="pagina-aula7">
     <header>
-        <h1>Aula 7 - Exercício 1</h1>
-        <p>Javascript</p>
+        <h1>Aula 7 - Exercícios JavaScript</h1>
+        <p>Sintaxe básica e manipulação do DOM.</p>
         <nav>
         <a href="../index.html">Início</a>
         <a href="../sobre.html">Sobre</a>
@@ -19,11 +19,120 @@
         <a href="../handson.html" class="ativo" aria-current="page">Hands-on</a>
         </nav>
     </header>
-    <main> 
-        <section>
-            <h2>Aula 7 - Exercício 1</h2>
-            <p>Javascript</p>
+    <main>
+        <section class="exercicio-js calculadora-js">
+            <h2>Exercício 1 - Operações</h2>
+            <p>Digite dois números e escolha uma operação.</p>
+
+            <label for="numero1">Primeiro número</label>
+            <input type="number" id="numero1" value="10">
+
+            <label for="numero2">Segundo número</label>
+            <input type="number" id="numero2" value="2">
+
+            <div class="botoes-js">
+                <button type="button" onclick="calcular('adicao')">Adição (+)</button>
+                <button type="button" onclick="calcular('subtracao')">Subtração (-)</button>
+                <button type="button" onclick="calcular('multiplicacao')">Multiplicação (*)</button>
+                <button type="button" onclick="calcular('divisao')">Divisão (/)</button>
+            </div>
+
+            <p id="resultado-calculo" class="resultado-js">Resultado: </p>
+        </section>
+
+        <section class="exercicio-js data-js">
+            <h2>Exercício 2 - Data no footer</h2>
+            <p>A data de hoje é exibida automaticamente no rodapé da página.</p>
+        </section>
+
+        <section class="exercicio-js">
+            <h2>Exercício 3 - Mensagem inline</h2>
+            <p>Clique no botão para inserir uma mensagem na página.</p>
+            <button type="button" onclick="mostrarMensagemInline()">Mostrar mensagem</button>
+            <p id="mensagem-inline" class="resultado-js"></p>
+        </section>
+
+        <section class="exercicio-js">
+            <h2>Exercício 4 - Horas em uma DIV</h2>
+            <p>O botão chama uma função JavaScript e mostra o horário atual.</p>
+            <button type="button" onclick="mostrarHoras()">Mostrar horas</button>
+            <div id="horario" class="caixa-horario">Clique no botão para ver as horas.</div>
+        </section>
+
+        <section class="exercicio-js tipos-js">
+            <h2>Exercício 5 - Tipos de dados</h2>
+            <p>Escolha um valor para ver o tipo de dado exibido dinamicamente.</p>
+
+            <div class="botoes-js">
+                <button type="button" onclick="mostrarTipo(25, 'Number', '25')">Number</button>
+                <button type="button" onclick="mostrarTipo(9007199254740991n, 'BigInt', '9007199254740991n')">BigInt</button>
+                <button type="button" onclick="mostrarTipo('Texto', 'String', '&quot;Texto&quot;')">String</button>
+                <button type="button" onclick="mostrarTipo(true, 'Boolean', 'true')">Boolean</button>
+                <button type="button" onclick="mostrarTipo(undefined, 'Undefined', 'undefined')">Undefined</button>
+                <button type="button" onclick="mostrarTipo(null, 'Null', 'null')">Null</button>
+                <button type="button" onclick="mostrarTipo(Symbol('id'), 'Symbol', 'Symbol(&quot;id&quot;)')">Symbol</button>
+                <button type="button" onclick="mostrarTipo({ curso: 'Web' }, 'Object', '{ curso: &quot;Web&quot; }')">Object</button>
+            </div>
+
+            <p id="resultado-tipo" class="resultado-js">Tipo selecionado: </p>
+
+            <ol>
+                <li><strong>Number:</strong> representa números.</li>
+                <li><strong>BigInt:</strong> representa números inteiros muito grandes.</li>
+                <li><strong>String:</strong> representa textos.</li>
+                <li><strong>Boolean:</strong> representa verdadeiro ou falso.</li>
+                <li><strong>Undefined:</strong> valor ainda não definido.</li>
+                <li><strong>Null:</strong> ausência intencional de valor.</li>
+                <li><strong>Symbol:</strong> valor único e imutável.</li>
+                <li><strong>Object:</strong> armazena coleções de dados.</li>
+            </ol>
         </section>
     </main>
+
+    <footer>
+        <p>Data de hoje: <span id="data-hoje"></span></p>
+    </footer>
+
+    <script>
+        function calcular(operacao) {
+            const numero1 = Number(document.getElementById("numero1").value);
+            const numero2 = Number(document.getElementById("numero2").value);
+            let resultado;
+
+            if (operacao === "adicao") {
+                resultado = numero1 + numero2;
+            } else if (operacao === "subtracao") {
+                resultado = numero1 - numero2;
+            } else if (operacao === "multiplicacao") {
+                resultado = numero1 * numero2;
+            } else if (operacao === "divisao") {
+                resultado = numero2 === 0 ? "Não é possível dividir por zero." : numero1 / numero2;
+            }
+
+            document.getElementById("resultado-calculo").textContent = "Resultado: " + resultado;
+        }
+
+        function mostrarMensagemInline() {
+            document.getElementById("mensagem-inline").textContent = "Mensagem inserida com JavaScript inline.";
+        }
+
+        function mostrarHoras() {
+            const agora = new Date();
+            document.getElementById("horario").textContent = agora.toLocaleTimeString("pt-BR");
+        }
+
+        function mostrarTipo(valor, nome, exemplo) {
+            let tipo = typeof valor;
+
+            if (valor === null) {
+                tipo = "null";
+            }
+
+            document.getElementById("resultado-tipo").textContent = "Tipo selecionado: " + nome + " (" + tipo + "). Exemplo: " + exemplo;
+        }
+
+        const dataAtual = new Date();
+        document.getElementById("data-hoje").textContent = dataAtual.toLocaleDateString("pt-BR");
+    </script>
 </body>
 </html>

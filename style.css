@@ -2,24 +2,6 @@
     box-sizing: border-box;
 }
 
-/* Correção da galeria da Aula 2 */
-.pagina-aula2 .galeria-aula2 {
-    grid-column: 1 / -1;
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.pagina-aula2 .galeria-aula2 img {
-    width: 300px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 :root {
     --bg-page: #f4f7f4;
     --bg-panel: #ffffff;
@@ -112,8 +94,8 @@ section {
     box-shadow: var(--shadow);
 }
 
-main > section:not(:last-of-type) {
-    grid-column: span 12;
+main > section {
+    grid-column: 1 / -1;
 }
 
 main > section h2:last-of-type {
@@ -141,26 +123,6 @@ section p a,
 section li a {
     font-weight: 700;
     text-underline-offset: 3px;
-}
-
-.banner {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 14px;
-    border-radius: 10px;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-}
-
-.formulario-contato,
-.formulario-cadastro {
-    display: grid;
-    gap: 10px;
-}
-
-.formulario-contato label,
-.formulario-cadastro label {
-    font-weight: 700;
 }
 
 input,
@@ -212,15 +174,6 @@ button:focus-visible {
     filter: brightness(0.95);
 }
 
-.container {
-    width: 90%;
-    height: 700px;
-    margin: auto;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
 iframe {
     width: 100%;
     border: none;
@@ -234,7 +187,40 @@ footer {
     background-color: var(--bg-footer);
 }
 
-/* Cadastro */
+/* Página inicial */
+.pagina-home main > section {
+    grid-column: 1 / -1;
+}
+
+.banner {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 14px;
+    border-radius: 10px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* Página contato */
+.formulario-contato {
+    display: grid;
+    gap: 10px;
+}
+
+.formulario-contato label {
+    font-weight: 700;
+}
+
+/* Página cadastro */
+.formulario-cadastro {
+    display: grid;
+    gap: 10px;
+}
+
+.formulario-cadastro label {
+    font-weight: 700;
+}
+
 .descricao-formulario {
     margin-top: -4px;
     color: var(--text-muted);
@@ -294,55 +280,20 @@ footer {
     color: #d00000;
 }
 
-
-/* Celular */
-@media screen and (max-width: 767px) {
-    nav a {
-        width: 100%;
-    }
-
-    main {
-        width: min(100% - 24px, 1080px);
-    }
-
-    section {
-        padding: 20px 18px;
-    }
-
-    button {
-        width: 100%;
-        justify-self: stretch;
-    }
+/* Página Hands-on */
+.pagina-hands-on main > section:first-of-type a {
+    display: block;
+    margin-top: 8px;
 }
 
-/* Tablet */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav a {
-        min-width: 130px;
-    }
-
-    .pagina-home main,
-    .pagina-contato main {
-        grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
-        align-items: start;
-    }
-
-    .pagina-sobre main,
-    .pagina-links main {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: start;
-    }
-
-    .pagina-sobre main > section:first-of-type,
-    .pagina-links main > section:last-of-type {
-        grid-column: 1 / -1;
-    }
+/* Componentes específicos */
+.container {
+    width: 90%;
+    height: 700px;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Aula 2 - Exercício 1 */
@@ -352,6 +303,7 @@ footer {
 }
 
 .pagina-aula2 .galeria-aula2 {
+    grid-column: 1 / -1;
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -362,8 +314,8 @@ footer {
 
 .pagina-aula2 .galeria-aula2 img {
     width: 300px;
+    max-width: 100%;
     height: auto;
-    max-width: none;
     display: block;
     border-radius: 10px;
     border: 1px solid var(--border);
@@ -391,18 +343,12 @@ footer {
     grid-column: 1 / -1;
 }
 
-@media screen and (max-width: 767px) {
-    .pagina-aula4 main.layout-aula {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* Aula 6 - Exercícios CSS */
 .pagina-aula6 .produto-principal,
 .pagina-aula6 .descricao-produto,
 .pagina-aula6 .galeria-produto,
 .pagina-aula6 .caracteristicas,
-.pagina-aula6 .especificacoes{
+.pagina-aula6 .especificacoes {
     grid-column: 1 / -1;
 }
 
@@ -411,7 +357,6 @@ footer {
     gap: 20px;
     align-items: center;
 }
-
 
 .pagina-aula6 p {
     font-size: 1rem;
@@ -479,6 +424,92 @@ footer {
     background-color: var(--bg-header);
 }
 
+/* Aula 7 - Exercícios JavaScript */
+.pagina-aula7 .exercicio-js {
+    grid-column: 1 / -1;
+}
+
+.pagina-aula7 label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.pagina-aula7 .botoes-js {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.pagina-aula7 .resultado-js,
+.pagina-aula7 .caixa-horario {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: #f8faf8;
+    font-weight: 700;
+}
+
+.pagina-aula7 .tipos-js ol {
+    margin-top: 16px;
+}
+
+/* Medias queries */
+
+/* Celular */
+@media screen and (max-width: 767px) {
+    nav a {
+        width: 100%;
+    }
+
+    main {
+        width: min(100% - 24px, 1080px);
+    }
+
+    section {
+        padding: 20px 18px;
+    }
+
+    button {
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    .pagina-aula4 main.layout-aula {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        min-width: 130px;
+    }
+
+    .pagina-contato main {
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
+        align-items: start;
+    }
+
+    .pagina-sobre main,
+    .pagina-links main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+
+    .pagina-sobre main > section:first-of-type,
+    .pagina-links main > section:last-of-type {
+        grid-column: 1 / -1;
+    }
+}
+
 /* Desktop */
 @media screen and (min-width: 1024px) {
     header {
@@ -504,14 +535,6 @@ footer {
     section {
         width: 100%;
         padding: 24px;
-    }
-
-    .pagina-home main > section:first-of-type {
-        grid-column: span 8;
-    }
-
-    .pagina-home main > section:last-of-type {
-        grid-column: span 4;
     }
 
     .pagina-sobre main > section:first-of-type {
@@ -546,7 +569,7 @@ footer {
     }
 
     .pagina-hands-on main > section:last-of-type {
-        grid-column: span 3;
+        grid-column: span 4;
     }
 
     .pagina-hands-on main > section {
@@ -570,4 +593,20 @@ footer {
         grid-column: span 4;
     }
 
+    .pagina-aula7 .calculadora-js {
+        grid-column: span 7;
+    }
+
+    .pagina-aula7 .data-js {
+        grid-column: span 5;
+    }
+
+    .pagina-aula7 main > section:nth-of-type(3),
+    .pagina-aula7 main > section:nth-of-type(4) {
+        grid-column: span 6;
+    }
+
+    .pagina-aula7 .tipos-js {
+        grid-column: 1 / -1;
+    }
 }
