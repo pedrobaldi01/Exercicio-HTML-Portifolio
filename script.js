@@ -1,4 +1,5 @@
 const API_CADASTRO = "https://backend-node-nmze.onrender.com/register";
+const API_PUBLICACOES = "https://api-progweb.onrender.com/posts";
 
 function pegarValor(id) {
     return document.getElementById(id).value.trim();
@@ -27,8 +28,8 @@ function validarCadastro(dados) {
         erros.push("Email: digite um endereço válido. Exemplo: nome@email.com.");
     }
 
-    if (dados.senha.length < 6) {
-        erros.push("Senha: a senha precisa ter pelo menos 6 caracteres.");
+    if (dados.senha.length < 8) {
+        erros.push("Senha: a senha precisa ter pelo menos 8 caracteres.");
     }
 
     if (dados.senha !== dados.confirmarSenha) {
@@ -165,4 +166,77 @@ if (formularioCadastro) {
     campoCep.addEventListener("input", () => {
         campoCep.value = aplicarMascaraCep(campoCep.value);
     });
+}
+
+function exibirMensagemPublicacoes(texto, tipo) {
+    const mensagem = document.getElementById("mensagem-publicacoes");
+
+    mensagem.className = `mensagem ${tipo}`;
+    mensagem.textContent = texto;
+}
+
+function formatarDataPublicacao(data) {
+    const dataPublicacao = new Date(`${data}T00:00:00`);
+
+    if (Number.isNaN(dataPublicacao.getTime())) {
+        return data;
+    }
+
+    return dataPublicacao.toLocaleDateString("pt-BR");
+}
+
+function criarCardPublicacao(publicacao) {
+    const card = document.createElement("article");
+    card.className = "card-publicacao";
+
+    const foto = document.createElement("img");
+    foto.src = publicacao.fotoAutor;
+    foto.alt = `Foto de ${publicacao.autor}`;
+
+    const titulo = document.createElement("h2");
+    titulo.textContent = publicacao.titulo;
+
+    const descricao = document.createElement("p");
+    descricao.textContent = publicacao.descricao;
+
+    const autor = document.createElement("p");
+    autor.className = "autor-publicacao";
+    autor.textContent = publicacao.autor;
+
+    const data = document.createElement("p");
+    data.className = "data-publicacao";
+    data.textContent = formatarDataPublicacao(publicacao.dataPublicacao);
+
+    card.append(foto, titulo, descricao, autor, data);
+
+    return card;
+}
+
+async function carregarPublicacoes() {
+    const lista = document.getElementById("lista-publicacoes");
+
+    try {
+        const resposta = await fetch(API_PUBLICACOES);
+
+        if (!resposta.ok) {
+            throw new Error("Erro na API");
+        }
+
+        const publicacoes = await resposta.json();
+
+        publicacoes.forEach((publicacao) => {
+            lista.appendChild(criarCardPublicacao(publicacao));
+        });
+
+        exibirMensagemPublicacoes(`${publicacoes.length} publicações carregadas.`, "sucesso");
+    } catch (erro) {
+        console.error(erro);
+        exibirMensagemPublicacoes("Não foi possível carregar as publicações. Tente novamente mais tarde.", "erro");
+    }
+}
+
+const listaPublicacoes = document.getElementById("lista-publicacoes");
+
+if (listaPublicacoes) {
+    carregarPublicacoes();
 }

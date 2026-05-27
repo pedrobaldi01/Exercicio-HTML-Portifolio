@@ -280,6 +280,42 @@ footer {
     color: #d00000;
 }
 
+/* Página publicações */
+.pagina-publicacoes .lista-publicacoes {
+    display: grid;
+    gap: 16px;
+}
+
+.pagina-publicacoes .card-publicacao {
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: #f8faf8;
+}
+
+.pagina-publicacoes .card-publicacao img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pagina-publicacoes .card-publicacao h2 {
+    margin: 10px 0 8px;
+    font-size: 1.2rem;
+}
+
+.pagina-publicacoes .autor-publicacao {
+    margin-bottom: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.pagina-publicacoes .data-publicacao {
+    margin-top: 0;
+    color: var(--text-muted);
+}
+
 /* Página Hands-on */
 .pagina-hands-on main > section:first-of-type a {
     display: block;
@@ -499,7 +535,8 @@ footer {
     }
 
     .pagina-sobre main,
-    .pagina-links main {
+    .pagina-links main,
+    .pagina-publicacoes .lista-publicacoes {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: start;
     }
@@ -508,6 +545,7 @@ footer {
     .pagina-links main > section:last-of-type {
         grid-column: 1 / -1;
     }
+
 }
 
 /* Desktop */
@@ -558,6 +596,10 @@ footer {
 
     .pagina-links main > section:last-of-type {
         grid-column: 1 / -1;
+    }
+
+    .pagina-publicacoes .lista-publicacoes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .pagina-cadastro main > section {
