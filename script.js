@@ -1,5 +1,6 @@
 const API_CADASTRO = "https://backend-node-nmze.onrender.com/register";
 const API_PUBLICACOES = "https://api-progweb.onrender.com/posts";
+const API_GAMES = "https://api-progweb.onrender.com/games";
 
 function pegarValor(id) {
     return document.getElementById(id).value.trim();
@@ -239,4 +240,57 @@ const listaPublicacoes = document.getElementById("lista-publicacoes");
 
 if (listaPublicacoes) {
     carregarPublicacoes();
+}
+
+function exibirMensagemGames(texto, tipo) {
+    const mensagem = document.getElementById("mensagem-games");
+
+    mensagem.className = `mensagem ${tipo}`;
+    mensagem.textContent = texto;
+}
+
+function preencherTabelaGames(games) {
+    const corpoTabela = document.getElementById("corpo-tabela-games");
+
+    corpoTabela.innerHTML = "";
+
+    games.forEach((game) => {
+        const linha = document.createElement("tr");
+        const id = document.createElement("td");
+        const nome = document.createElement("td");
+        const categoria = document.createElement("td");
+        const ranking = document.createElement("td");
+
+        id.textContent = game.id;
+        nome.textContent = game.nome;
+        categoria.textContent = game.categoria;
+        ranking.textContent = game.ranking;
+
+        linha.append(id, nome, categoria, ranking);
+        corpoTabela.appendChild(linha);
+    });
+}
+
+async function carregarGames() {
+    try {
+        const resposta = await fetch(API_GAMES);
+
+        if (!resposta.ok) {
+            throw new Error("Erro na API");
+        }
+
+        const games = await resposta.json();
+
+        preencherTabelaGames(games);
+        exibirMensagemGames(`${games.length} jogos carregados pela API.`, "sucesso");
+    } catch (erro) {
+        console.error(erro);
+        exibirMensagemGames("Não foi possível carregar os jogos pela API /games.", "erro");
+    }
+}
+
+const corpoTabelaGames = document.getElementById("corpo-tabela-games");
+
+if (corpoTabelaGames) {
+    carregarGames();
 }

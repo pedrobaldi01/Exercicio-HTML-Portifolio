@@ -316,6 +316,42 @@ footer {
     color: var(--text-muted);
 }
 
+/* Aula 11 - Banco de Dados */
+.pagina-aula11 .tabela-responsiva {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.pagina-aula11 .tabela-games {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+    background-color: #ffffff;
+}
+
+.pagina-aula11 .tabela-games th,
+.pagina-aula11 .tabela-games td {
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+.pagina-aula11 .tabela-games th {
+    color: #ffffff;
+    background-color: var(--bg-header);
+}
+
+.pagina-aula11 .tabela-games tbody tr:nth-child(even) {
+    background-color: #f8faf8;
+}
+
+.pagina-aula11 .tabela-games td:first-child,
+.pagina-aula11 .tabela-games td:last-child {
+    width: 96px;
+    font-weight: 700;
+}
+
 /* Página Hands-on */
 .pagina-hands-on main > section:first-of-type a {
     display: block;
