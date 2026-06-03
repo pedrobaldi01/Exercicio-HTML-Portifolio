@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11 - Banco de Dados</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="pagina-aula11">
+    <header>
+        <h1>Aula 11 - Banco de Dados</h1>
+        <p>Dados da tabela games criada no PostgreSQL.</p>
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="../sobre.html">Sobre</a>
+            <a href="../contato.html">Contato</a>
+            <a href="../links.html">Links</a>
+            <a href="../cadastro.html">Cadastro</a>
+            <a href="../handson.html" class="ativo" aria-current="page">Hands-on</a>
+            <a href="../publicacoes.html">Publicações</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tabela games</h2>
+            <p id="mensagem-games" class="mensagem aviso" aria-live="polite">Carregando jogos...</p>
+
+            <div class="tabela-responsiva">
+                <table class="tabela-games">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Categoria</th>
+                            <th>Ranking</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo-tabela-games">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 - Pedro Baldi - Ciência da Computação - Turma 2024/T1</p>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>
